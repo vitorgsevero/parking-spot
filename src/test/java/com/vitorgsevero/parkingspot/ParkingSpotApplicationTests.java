@@ -1,4 +1,4 @@
-package com.vitorgsevero.parking_spot;
+package com.vitorgsevero.parkingspot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
