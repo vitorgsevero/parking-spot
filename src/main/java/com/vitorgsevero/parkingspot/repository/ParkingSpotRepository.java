@@ -9,4 +9,8 @@ import java.util.UUID;
 @Repository
 public interface ParkingSpotRepository extends JpaRepository<ParkingSpot, UUID> {
 
+    boolean existsByVehicleLicensePlate(String vehicleLicensePlate);
+    boolean existsByParkingSpotNumber(String parkingSpotNumber);
+    boolean existsByApartmentAndApartmentBlock(String apartment, String apartmentBlock);
+
 }
