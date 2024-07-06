@@ -3,6 +3,8 @@ package com.vitorgsevero.parkingspot.service;
 import com.vitorgsevero.parkingspot.model.ParkingSpot;
 import com.vitorgsevero.parkingspot.repository.ParkingSpotRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,8 +37,8 @@ public class ParkingSpotService {
         return parkingSpotRepository.existsByApartmentAndApartmentBlock(apartment, apartmentBlock);
     }
 
-    public List<ParkingSpot> findAll(){
-        return parkingSpotRepository.findAll();
+    public Page<ParkingSpot> findAll(Pageable pageable){
+        return parkingSpotRepository.findAll(pageable);
     }
 
     public Optional<ParkingSpot> findById(UUID id){
