@@ -4,6 +4,7 @@ import com.vitorgsevero.parkingspot.dto.ParkingSpotDTO;
 import com.vitorgsevero.parkingspot.model.ParkingSpot;
 import com.vitorgsevero.parkingspot.service.ParkingSpotService;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -70,6 +72,28 @@ public class ParkingSpotController {
         }
         service.deleteParkingSpot(parkingSpotOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("ParkingSpot deleted successfully.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateParkingSpot(@PathVariable(value="id") UUID id,
+                                               @RequestBody @Valid ParkingSpotDTO parkingSpotDTO) {
+        Optional<ParkingSpot> parkingSpotOptional = service.findById(id);
+        if(parkingSpotOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ParkingSpot not found");
+        }
+
+        var parkingSpot = parkingSpotOptional.get();
+        parkingSpot.setParkingSpotNumber(parkingSpotDTO.getParkingSpotNumber());
+        parkingSpot.setVehicleLicensePlate(parkingSpotDTO.getVehicleLicensePlate());
+        parkingSpot.setCarModel(parkingSpotDTO.getCarModel());
+        parkingSpot.setCarBrand(parkingSpotDTO.getCarBrand());
+        parkingSpot.setCarColor(parkingSpotDTO.getCarColor());
+        parkingSpot.setResponsibleName(parkingSpotDTO.getResponsibleName());
+        parkingSpot.setApartment(parkingSpotDTO.getApartment());
+        parkingSpot.setApartmentBlock(parkingSpotDTO.getApartmentBlock());
+
+        return ResponseEntity.status(HttpStatus.OK).body(service.save(parkingSpot));
+
     }
 
 }
