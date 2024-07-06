@@ -2,7 +2,7 @@
 
 ## TODO list
 
-- [ ] Change DataTime to Brazil UTC
+- [x] Change DataTime to Brazil UTC
 - [ ] Add pagination to data return
 - [ ] Add Swagger documentation
 - [ ] Add Spring Security
