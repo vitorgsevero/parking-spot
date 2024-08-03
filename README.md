@@ -27,6 +27,33 @@
 git clone https://github.com/vitorgsevero/parking-spot.git
 ```
 
+- With docker run the command bellow to start a postgresql container:
+
+```sh
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=local_password postgres:16.1-alpine3.19
+
+```
+
+- Using the postgresql client `psql`, that can be downloaded using apt in ubuntu, run the command to access the database running in the container:
+
+```sh
+psql --host=localhost --username=postgres --port=5432
+
+```
+
+- Now from the database run the command below to create the database that will be used by this applications:
+
+```sql
+CREATE DATABASE parking_control_db;
+
+```
+
+- Exit the dpostgres for to enter in the database created using the command:
+
+```sh
+psql --host=localhost --username=postgres --port=5432 -d parking_control_db
+```
+
 - You can make a post in the endpoint `http://localhost:8080/parking-spot`, using a request body like the ones below:
 
 ```json
