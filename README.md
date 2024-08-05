@@ -6,7 +6,7 @@
   <img src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" alt="postgresql logo" width="100" height="auto">
 </div>
 
-### Used technologies:
+### Used Technologies:
 
 - `Spring`
 - `Postgresql`
@@ -17,11 +17,11 @@
 
 ### Description:
 
-- Implemetantion of an API of Parking Control
+- Implemetation of an API of Parking Control
 
 ### Get Started
 
-- Downloand this application with the command:
+- Download this application with the command:
 
 ```sh
 git clone https://github.com/vitorgsevero/parking-spot.git
@@ -41,7 +41,7 @@ psql --host=localhost --username=postgres --port=5432
 
 ```
 
-- Now from the database run the command below to create the database that will be used by this applications:
+- Now from the database run the command below to create the database that will be used by this application:
 
 ```sql
 CREATE DATABASE parking_control_db;
@@ -83,7 +83,7 @@ psql --host=localhost --username=postgres --port=5432 -d parking_control_db
 ```
 
 - You can see all the Paking spots already recorded by acessing the endpoint `http://localhost:8080/parking-spot` using a `GET method`.
-- You can see informations about a specific recorded paking spots by acessing the endpoint `http://localhost:8080/parking-spot/{id}`.
+- You can see informations about a specific recorded parking spots by acessing the endpoint `http://localhost:8080/parking-spot/{id}`.
 
 ## contributing
 
