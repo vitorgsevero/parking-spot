@@ -11,7 +11,7 @@
 - `Spring`
 - `Postgresql`
 
-### Informations:
+### Information:
 
 - This project is under construction.
 
